@@ -1,0 +1,101 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div>
+    <mat-sidenav-container>
+
+        <mat-sidenav #drawer mode="push">
+              
+            <div id="wrapper">
+                <div id="sidebar-wrapper">
+                    <aside id="sidebar">
+                         
+                        <ul id="sidemenu" class="sidebar-nav">
+                            <li>
+                                <a href="#" [routerLink]="['/']" (click)="drawer.toggle()">
+
+                                    <span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
+                                    <span class="sidebar-title">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                    <a href="#" [routerLink]="['/sales']" routerLinkActive="active" >
+    
+                                        <span class="sidebar-icon"><i class="fa fa-shopping-cart"></i></span>
+                                        <span class="sidebar-title">SAP Sales Order</span>
+                                    </a>
+                            </li>
+                            
+                            <li>
+                                    <a href="#" [routerLink]="['/dash']" routerLinkActive="active" >
+    
+                                        <span class="sidebar-icon"><i class="fa fa-shopping-cart"></i></span>
+                                        <span class="sidebar-title">DashBoard</span>
+                                    </a>
+                            </li>
+
+                            <li>
+                                <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse"
+                                    href="#submenu-3">
+                                    <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
+                                    <span class="sidebar-title">Rezer</span>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>Posts</a></li>
+                                    <li><a href="#"><i class="fa fa-caret-right"></i>Comments</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sidebar-icon"><i class="fa fa-database"></i></span>
+                                    <span class="sidebar-title">Data</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
+                                    <span class="sidebar-title">Console</span>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </aside>
+
+                </div>
+            </div>
+
+        </mat-sidenav>
+        <mat-toolbar *ngIf="userIsAuthenticated" id="appToolbar"
+            [ngClass]="{'toolbar-fullscreen': (fullscreen$ | async)}"
+            class="navbar navbar-light bg-primary navbar-fixed-top navbar-default">
+
+            <button mat-icon-button (click)="drawer.toggle()"
+                class="mat-icon-button sidenav-toggle-button material-icons md-18 material-icons md-blue"
+                [hidden]="drawer.opened">
+                <mat-icon aria-label="Menu" class="material-icons md-18 material-icons md-blue">menu</mat-icon>
+
+            </button>
+            <span flex>Custom Toolbar</span>
+
+            <span class="toolbar-filler"></span>
+
+            <!--button id="button-login" mat-button routerLink="/login" routerLinkActive="mat-accent" *ngIf="!(userIsAuthenticated | async)">Log In</button-->
+            <button id="button-logout" mat-button (click)="onLogout()" *ngIf="(userIsAuthenticated)">Log Out</button>
+
+           
+
+
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+
+
+
+        
+        
+        <mat-card>
+            <app-maindashboard *ngIf="userIsAuthenticated"></app-maindashboard>
+        </mat-card>
+    </mat-sidenav-container>
+    
+</div>

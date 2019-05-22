@@ -1,0 +1,36 @@
+import { OnInit } from '@angular/core';
+import { Column } from './column';
+import { GridService } from './grid.service';
+export declare class GridComponent implements OnInit {
+    private gridservice;
+    columns: Column[];
+    search: string[];
+    gridid: any;
+    data: any;
+    datas: any[];
+    delopt: boolean;
+    addopt: boolean;
+    sortType: string;
+    sortDirection: boolean[];
+    editmode: boolean;
+    editcol: string;
+    filtercode: string;
+    filter: boolean;
+    colix: number;
+    colIdx: number;
+    rowix: number;
+    prop: string;
+    inpid: string;
+    sortmode: boolean;
+    constructor(gridservice: GridService);
+    ngOnInit(): void;
+    remove(id: number): void;
+    add(): void;
+    seltemplate(editable?: boolean, prop?: any, ix?: any, colIdx?: any): boolean;
+    validateOnlyNumbers(evt: any, type: any): void;
+    shiftFocusDown(rowIdx: number, colIdx: number, property: string): void;
+    shiftFocusUp(rowIdx: number, colIdx: number, property: string): void;
+    shiftFocusLeft(rowIdx: number, colIdx: number, property: string): void;
+    shiftFocusRight(rowIdx: number, colIdx: number, property: string): void;
+    seteditmode(id: number, colIdx: number, property: string, data: any): void;
+}

@@ -1,0 +1,141 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-card  cdkDrag>
+    <!-- Title of an Card -->
+    <mat-card-title>
+        Sales Order
+        <div class="drag-handle" cdkDragHandle>
+            <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                </path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+        </div>
+    </mat-card-title>
+
+    <!-- Actual content starts from here -->
+    <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="Sales Slip">
+    <mat-card-content>
+
+        <form [formGroup]="salesForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="form-group">
+                        <label for="custid" class="lbl">Customer<span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+                            <input type="text" formControlName="custid" class="inp" (change)="onChangeCustomer($event.target.value)"
+                                [ngClass]="{ 'is-invalid': submitted && f.custid.errors }"/>
+                                <input type="button"  class="btnlist"  (click)=openCustList()/>
+                            
+           
+                            </label>
+                   
+                </div>
+                <div  class="three"></div>
+               
+                <div class="form-group">
+                    <label for="ordno" class="lbl">No.<span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+
+                        <input class="inp" type="text" formControlName="ordno" 
+                            [ngClass]="{ 'is-invalid': submitted && f.ordno.errors }" />
+                    </label>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="form-group">
+                    <label for="custname" class="lbl">Name<span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+               
+                    <input type="text" class="inp" formControlName="custname"
+                        [ngClass]="{ 'is-invalid': submitted && f.custname.errors }" />
+
+                
+            </label>
+        </div>
+        <div  class="three"></div>
+       
+                <div class="form-group">
+                    <label for="statu" class="lbl">Status<span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+                    <input type="text" formControlName="statu" class="inp"
+                        [ngClass]="{ 'is-invalid': submitted && f.statu.errors }" />
+                   </label>
+                </div>
+            </div>
+            <div class="container">
+                <div class="form-group">
+                    <label for="contact" class="lbl">Contact<span>&#160;</span>Person<span>&#160;&#160;</span>
+                    <input type="text" formControlName="contact" class="inp"
+                        [ngClass]="{ 'is-invalid': submitted && f.contact.errors }"/>
+                        <input type="button"  class="btnlist"  (click)=openCustList()/>
+                    
+   
+                    </label>
+                </div>
+                <div  class="three"></div>
+           
+
+                <div class="form-group">
+                    <label for="Pstdate" class="lbl">Posting<span>&#160;</span>Date<span>&#160;&#160;&#160;</span>
+                
+                        <input type="date" formControlName="Pstdate" class="inp"  
+                        [ngModel]="data.postdate | date:'yyyy-MM-dd'" 
+                        (ngModelChange)="data.postdate = $event">
+                    </label>
+                 
+                
+                </div>
+            </div>
+            <div class="container">
+                <div class="form-group">
+                    <label for="refno"  class="lbl">Customer<span>&#160;</span>Ref.No.
+                
+                    <input type="text" formControlName="refno"  class="inp"
+                        [ngClass]="{ 'is-invalid': submitted && f.refno.errors }" />
+                    </label>
+                </div>
+                <div  class="three"></div>
+               
+                <div class="form-group">
+                    <label for="Dvdate"  class="lbl">Delivery<span>&#160;</span>Date<span>&#160;&#160;</span>
+            
+                    <input type="date" formControlName="Dvdate"  class="inp" 
+                    [ngModel]="data.dlvdate | date:'yyyy-MM-dd'" 
+                    (ngModelChange)="data.dlvdate = $event">
+                    </label>
+                </div>
+               
+               
+            </div>
+            <div class="container">
+                <div class="form-group">
+                    <label for="currid"  class="lbl">Curency<span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+                
+                    <input type="text" formControlName="currid"  class="inp"
+                        [ngClass]="{ 'is-invalid': submitted && f.currid.errors }" />
+                    </label>
+                </div>
+                <div  class="three"></div>
+               
+                <div class="form-group">
+                    <label for="Dcdate"  class="lbl">Document<span>&#160;</span>Date<span>&#160;&#160;&#160;</span>
+                   
+                    <input type="date" formControlName="Dcdate"  class="inp"  
+                    [ngModel]="data.docdate | date:'yyyy-MM-dd'" 
+                 (ngModelChange)="data.docdate = $event">
+                    </label>
+                </div>
+               
+               
+            </div>
+
+
+            <div class="form-group">
+                <app-grid></app-grid>
+            </div>
+
+            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        </form>
+    </mat-card-content>
+</mat-tab>
+<mat-tab label= "Internet Sales">cccc</mat-tab>
+</mat-tab-group>
+</mat-card>

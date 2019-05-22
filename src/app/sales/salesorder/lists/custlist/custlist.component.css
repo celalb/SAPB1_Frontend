@@ -1,0 +1,31 @@
+
+div.container
+{
+    display: flex;
+    margin-bottom: 1px;
+}
+
+div.container > div
+{
+    flex: 2 2 5em;
+    margin-left: 1px;
+    
+    text-align: left;
+    width:100%;
+}
+
+div.container > div:first-child
+{
+    margin-left: 0;
+}
+
+div.container > div.two
+{
+    flex:2 2 calc(10em + 10px); /** 10px is the missing margin of the missing box */
+}
+
+div.container > div.three
+{
+    flex:5 5 calc(20em + 30px); /** 20px is the missing margin of the two missing boxes */
+}
+ 

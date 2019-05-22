@@ -1,0 +1,108 @@
+mat-card {
+    width: 100%;
+    top: 50px;
+   
+    text-align: center;
+   
+  }
+  drag-box {
+    
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    box-sizing: border-box;
+    border: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    text-align: center;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .drag-box:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .drag-handle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ccc;
+    cursor: move;
+    width: 24px;
+    height: 24px;
+  }
+
+  div.container
+  {
+      display: flex;
+      margin-bottom: 1px;
+  }
+  
+  div.container > div
+  {
+      flex: 2 2 5em;
+      margin-left: 1px;
+      height:16px;
+      text-align: left;
+      width:100%;
+  }
+  
+  div.container > div:first-child
+  {
+      margin-left: 0;
+  }
+  
+  div.container > div.two
+  {
+      flex:2 2 calc(10em + 10px); /** 10px is the missing margin of the missing box */
+  }
+  
+  div.container > div.three
+  {
+      flex:5 5 calc(20em + 30px); /** 20px is the missing margin of the two missing boxes */
+  }
+  .lbl {
+    display: flex;
+  /*  word-spacing: 2px;*/
+  padding-left: 1.8em;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    width: 250px;
+    line-height: 26px;
+    margin-bottom: 1px;
+    text-decoration: underline
+  }
+  
+  .inp {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+  }
+  
+  
+  input[type="button"] {
+    margin-left: -13px;
+    height: 20px;
+    width: 30px;
+    
+    background: url('../../../assets/baseline_list_black_18dp.png');
+    background-color:rgb(196, 200, 202);
+    border: 0;
+    -webkit-appearance: none;
+}
+
+  
